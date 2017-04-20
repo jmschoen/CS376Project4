@@ -1,10 +1,3 @@
-/**
- * Test harness for LRU page replacement algorithms
- *
- * Usage:
- *	java [-Ddebug] Test <reference string size> <number of page frames>
- */
-
 public class Test
 {
 	public static void main(String[] args) {
