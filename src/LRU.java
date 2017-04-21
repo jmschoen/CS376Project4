@@ -3,7 +3,6 @@ import java.util.Stack;
 public class LRU extends ReplacementAlgorithm {
 
     private Stack referenceStack = new Stack();
-    private int leastRecentPageNumber;
 
     public LRU(int pageFrameCount) {
         super(pageFrameCount);
@@ -11,17 +10,18 @@ public class LRU extends ReplacementAlgorithm {
 
     @Override
     public void insert(int pageNumber) {
-
-        int buffer = this.pageFrameCount;
-
         if(referenceStack.contains(pageNumber)){
             referenceStack.remove(referenceStack.indexOf(pageNumber));
+        } else {
+            if(referenceStack.size() == this.pageFrameCount){
+                referenceStack.remove(referenceStack.indexOf(getLeastRecentPageNumber()));
+            }
+            this.pageFaultCount++;
         }
         referenceStack.add(pageNumber);
-
     }
 
-    private void getLeastRecentPageNumber(){
-        leastRecentPageNumber = (int)referenceStack.get(0);
+    private int getLeastRecentPageNumber(){
+        return (int)referenceStack.firstElement();
     }
 }
