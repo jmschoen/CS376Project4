@@ -1,14 +1,11 @@
 public class Test
 {
 	public static void main(String[] args) {
-		//new Integer(args[0]).intValue()
-		PageGenerator ref = new PageGenerator(5);
+		PageGenerator ref = new PageGenerator(new Integer(args[0]).intValue());
 
 		int[] referenceString = ref.getReferenceString();
 
-		/** Use either the LRU algorithm */
-		//new Integer(args[1]).intValue()
-		ReplacementAlgorithm lru = new LRU(5);
+		ReplacementAlgorithm lru = new LRU(new Integer(args[1]).intValue());
 
 		// output a message when inserting a page
 		for (int i = 0; i < referenceString.length; i++) {

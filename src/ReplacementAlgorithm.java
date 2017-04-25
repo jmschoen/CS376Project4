@@ -32,5 +32,5 @@ public abstract class ReplacementAlgorithm
 	/**
 	 * @param int pageNumber - the page number to be inserted
 	 */
-	public abstract void insert(int pageNumber); 
+	public abstract void insert(int pageNumber);
 }
